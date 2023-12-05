@@ -102,4 +102,19 @@ public class BinaryTree<T> implements Iterable<T> {
     } // if/else
   } // makeTree(T[], int, int)
 
+  // depth first, L to R
+  void elements01(PrintWriter pen, BinaryTreeNode<T> node){
+    pen.flush();
+    BinaryTreeNode<T> temp = node;
+      if(temp == null){
+        pen.print("<> ");
+      }
+      else{
+        pen.print(node.value + " ");
+        if ((temp.left != null) || (temp.right != null)) {
+          elements01(pen, temp.left);
+          elements01(pen, temp.right);
+        } // if has children
+      }
+    }
 } // class BinaryTree
